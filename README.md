@@ -20,8 +20,9 @@
 3. [Dataset](#dataset)
 4. [Model](#model)
 5. [Application](#application)
-6. [Contributing](#contributing)
-7. [License](#license)
+6. [Snapshots](#snapshots)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ---
 
@@ -30,7 +31,7 @@
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/poetry-emotion-classification.git
+    git clone https://github.com/ShrihariKasar/poetry-emotion-classification.git
     cd poetry-emotion-classification
     ```
 
@@ -100,6 +101,18 @@ The Flask web application accepts poetry text input and returns the primary dete
         "emotion": "Joy"
     }
     ```
+
+---
+
+## Snapshots
+
+### Home Page
+![Home Page](https://github.com/ShrihariKasar/poetry-emotion-classification/blob/main/Screenshots/Screenshot%20(298).png)
+
+### Emotion Analysis Result
+![Result Page](https://github.com/ShrihariKasar/poetry-emotion-classification/blob/main/Screenshots/Screenshot%20(299).png)
+
+Add snapshots of your web application in the `snapshots` folder and reference them here. Ensure the images are clear and demonstrate the functionality.
 
 ---
 
