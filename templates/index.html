@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Emotion Analyzer</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion Analyzer</h1>
+        <form id="emotionForm">
+            <textarea id="poetryInput" rows="5" placeholder="Enter your poetry here..."></textarea>
+            <button type="submit">Analyze Emotion</button>
+        </form>
+        <div id="loading" style="display: none;">Analyzing...</div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('emotionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('result').innerText = '';  // Clear previous result
+            document.getElementById('loading').style.display = 'block'; // Show loading message
+            
+            const text = document.getElementById('poetryInput').value;
+
+            fetch('/analyze-emotion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none'; // Hide loading message
+                if (data.emotion) {
+                    document.getElementById('result').innerText = `Detected Emotion: ${data.emotion}`;
+                } else {
+                    document.getElementById('result').innerText = `Error: ${data.error}`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none'; // Hide loading message
+                document.getElementById('result').innerText = `Error: ${error.message}`;
+            });
+        });
+    </script>
+</body>
+</html>
