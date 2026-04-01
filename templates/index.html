@@ -1,51 +1,942 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Emotion Analyzer</title>
+  <meta charset="UTF-8" />
+  <title>NorthMark Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0a0a0a">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Emotion Analyzer</h1>
-        <form id="emotionForm">
-            <textarea id="poetryInput" rows="5" placeholder="Enter your poetry here..."></textarea>
-            <button type="submit">Analyze Emotion</button>
-        </form>
-        <div id="loading" style="display: none;">Analyzing...</div>
-        <div id="result"></div>
+<div class="nav-wrap">
+  <div class="navbar">
+    <div class="nav-logo">
+  <a href="index.html">
+    <img src="images/logo.png" alt="NorthMark Logo">
+  </a>
+</div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="industry.html" class="nav-link">Industries</a>
+      <a href="about.html" class="nav-link">About us</a>
+      <a href="contact.html" class="nav-link nav-contact">Contact</a>
+    </nav>
+
+  </div>
+</div>
+<!-- HERO -->
+<!-- <section class="hero">
+  <h1>Strategy First,</h1>
+  <h2>Execution with Intent.</h2>
+  <h2>For Systems That Scale.</h2>
+
+  <p>
+    Strategy without execution is noise. Execution without strategy is waste.
+  </p>
+
+  <div class="cta">
+    <a href="#" class="btn-primary">Get Started →</a>
+    <a href="#" class="btn-secondary">Learn More</a>
+  </div>
+</section> -->
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="hero-grid hero-center">
+
+      <!-- CENTERED TEXT (ANIMATE FROM LEFT) -->
+      <div class="hero-text hero-animate-left">
+        <h1>Strategy First,</h1>
+        <h2>Execution with Intent.</h2>
+        <h2>For Systems That Scale.</h2>
+
+        <p>
+          Strategy without execution is noise. Execution without strategy is waste.
+        </p>
+
+        <div class="cta">
+          <a href="contact.html" class="btn-primary">Get Started</a>
+          <a href="#who-we-are" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+
     </div>
 
-    <script>
-        document.getElementById('emotionForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('result').innerText = '';  // Clear previous result
-            document.getElementById('loading').style.display = 'block'; // Show loading message
-            
-            const text = document.getElementById('poetryInput').value;
+  </div>
+</section>
+<!-- WHO WE ARE -->
+<section id="who-we-are" class="who-we-are">
+  <div class="who-container">
 
-            fetch('/analyze-emotion', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('loading').style.display = 'none'; // Hide loading message
-                if (data.emotion) {
-                    document.getElementById('result').innerText = `Detected Emotion: ${data.emotion}`;
-                } else {
-                    document.getElementById('result').innerText = `Error: ${data.error}`;
-                }
-            })
-            .catch(error => {
-                document.getElementById('loading').style.display = 'none'; // Hide loading message
-                document.getElementById('result').innerText = `Error: ${error.message}`;
-            });
-        });
-    </script>
-</body>
-</html>
+    <h3 class="reveal">Who We Are</h3>
+
+    <p class="who-lead reveal">
+      A team of professionals with over a decade of experience across business functions.
+    </p>
+
+    <p class="reveal">
+      Track record of business intelligence to scale business with data-backed strategies across
+      Sales, Marketing, Technology & Operations.
+    </p>
+
+    <div class="who-tags reveal">
+      <span class="northmark-tag">We help businesses build systems that scale.</span>
+    </div>
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="10">0</div>
+        <div class="stat-label">+ Years Experience</div>
+      </div>
+
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="150">0</div>
+        <div class="stat-label">+ Projects Delivered</div>
+      </div>
+
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="98">0</div>
+        <div class="stat-label">% Client Satisfaction</div>
+      </div>
+    </div>
+
+    <!-- FEATURE GRID -->
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+       <h4>Technology</h4>
+        <p>Scalable systems, automation, and modern architecture for growth-ready platforms.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <h4>Sales</h4>
+        <p>Customer acquisition and retention strategies to drive growth.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <h4>Marketing</h4>
+        <p>Performance-driven campaigns with analytics-led customer acquisition strategies.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <h4>Operations</h4>
+        <p>Process optimization and systems to drive efficiency at scale.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="problem-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="problem-content reveal from-left">
+      <h1>The Problem</h1>
+      <div>
+      <span class="northmark-tag">Growth breaks when systems don’t talk</span>
+    </div>
+
+      <p class="problem-lead">
+        Businesses invest heavily in marketing, tools, and technology —
+        yet growth stalls. The issue isn’t effort.  
+        It’s fragmentation.
+      </p>
+
+      <p class="problem-text">
+        When marketing, technology, and operations operate in silos,
+        teams lose visibility, waste budgets, and make reactive decisions.
+        Growth needs connected systems — not disconnected actions.
+      </p>
+    </div>
+
+<!-- RIGHT GRID -->
+<div class="why-grid">
+
+  <div class="why-card reveal">
+    <h3>Isolated Marketing</h3>
+    <p>
+      Campaigns run without alignment to business goals or system data,
+      resulting in low ROI and inconsistent growth.
+    </p>
+  </div>
+
+  <div class="why-card reveal">
+    <h3>Lack of Data Visibility</h3>
+    <p>
+      Decision-makers don’t have real-time insights into performance,
+      customer behavior, or operational efficiency.
+    </p>
+  </div>
+
+  <div class="why-card reveal">
+    <h3>Tool Overload</h3>
+    <p>
+      Multiple tools solving the same problem create confusion,
+      duplication, and increased costs.
+    </p>
+  </div>
+
+  <div class="why-card reveal">
+    <h3>Reactive Technology</h3>
+    <p>
+      Technology decisions are made in response to problems,
+      not as part of a long-term growth strategy.
+    </p>
+  </div>
+
+  <div class="why-card reveal">
+    <h3>Poor Adoption</h3>
+    <p>
+      Teams struggle to adopt new systems due to lack of clarity,
+      training, and ownership.
+    </p>
+  </div>
+
+  <div class="why-card reveal">
+    <h3>Disconnected Execution</h3>
+    <p>
+      Teams execute tasks without understanding the “why”,
+      leading to inefficiency and missed opportunities.
+    </p>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+<section class="why-section" id="why">
+  <div class="why-container">
+
+    <div class="why-layout">
+
+      <!-- LEFT TEXT -->
+      <div class="why-text">
+        <h2>Why this Happen</h2>
+       <p class="why-quote">
+  Strategy without execution is noise.<br>
+  Execution without strategy is waste.
+</p>
+      </div>
+
+      <!-- RIGHT CARDS -->
+      <div class="why-cards">
+
+        <!-- Card 1 -->
+        <div class="why-card">
+          <h3>The Real Problem</h3>
+          <p>
+            Most digital initiatives fail not because of lack of effort,
+            but because of misaligned intent. Execution happens in silos,
+            disconnected from real business outcomes.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why-card">
+          <h3>Because Most Digital Partners</h3>
+          <ul class="why-list">
+            <li>Execute tasks, not outcomes</li>
+            <li>Start with tools, not strategy</li>
+            <li>Optimize channels, not the business</li>
+            <li>Disappear after delivery</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- APPROACH -->
+<section class="approach-section" id="approach">
+
+  <h2 class="approach-title">Our Approach</h2>
+  <p class="approach-subtitle">
+    Strategy first. Execution with intent. Systems built to scale.
+  </p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-flip">
+
+      <!-- SVG ARCS + CONNECTORS (/\ SHAPE) -->
+      <svg class="reveal delay-1" viewBox="0 0 900 700">
+
+        <!-- LEFT ARM -->
+        <path class="connector" d="M450,40 L100,560" />
+        <path class="connector" d="M450,40 L200,420" />
+        <path class="connector" d="M450,40 L320,240" />
+
+        <!-- RIGHT ARM -->
+        <path class="connector" d="M450,40 L800,560" />
+        <path class="connector" d="M450,40 L700,420" />
+        <path class="connector" d="M450,40 L580,240" />
+
+        <!-- Funnel guide arcs -->
+        <path class="arc" d="M80,540 Q450,140 820,540" />
+        <path class="arc" d="M180,400 Q450,80 720,400" />
+
+      </svg>
+
+      <!-- STEP 1 -->
+      <div class="node n1 reveal delay-3">
+        <div class="node-inner">
+          <h4>Strategy First</h4>
+          <p>Ownership of outcomes, data-driven decisions, sustainable growth.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="node n2 reveal delay-4">
+        <div class="node-inner">
+          <h4>Understand Business</h4>
+          <p>Goals, gaps, challenges & constraints clearly identified.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="node n3 reveal delay-5">
+        <div class="node-inner">
+          <h4>Design System</h4>
+          <p>Strategy, roadmap & scalable architecture.</p>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="node n4 reveal delay-6">
+        <div class="node-inner">
+          <h4>Execute with Ownership</h4>
+          <p>Marketing, tech & operations aligned.</p>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="node n5 reveal delay-7">
+        <div class="node-inner">
+          <h4>Test & Implement</h4>
+          <p>Analyse, test, iterate & implement.</p>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="node n6 reveal delay-8">
+        <div class="node-inner">
+          <h4>Optimize & Scale</h4>
+          <p>Fix leaks, improve efficiency & scale sustainably.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- WHY NORTHMARK -->
+<section class="northmark-section">
+  <div class="northmark-container northmark-layout">
+
+    <!-- LEFT TEXT -->
+    <div class="northmark-header left">
+      <h2>Why NorthMark?</h2>
+      <span class="northmark-tag">Outcome Aligned Execution</span>
+    </div>
+
+    <!-- RIGHT TOP (2 CARDS) -->
+    <div class="northmark-top-cards">
+
+      <div class="northmark-card">
+        <h3>Ownership of Outcomes</h3>
+        <p>
+          We take full ownership of results — not just completing tasks,
+          but driving measurable business outcomes.
+        </p>
+      </div>
+
+      <div class="northmark-card">
+        <h3>Complete Digital Transformation</h3>
+        <p>
+          End-to-end transformation across Marketing, Technology,
+          and Operations aligned to business goals.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW (3 CARDS) -->
+    <div class="northmark-bottom-cards">
+
+      <div class="northmark-card">
+        <h3>Data-Backed Intelligence</h3>
+        <p>
+          Decisions powered by real-time data, analytics,
+          and actionable business intelligence.
+        </p>
+      </div>
+
+      <div class="northmark-card">
+        <h3>Transparency & Accountability</h3>
+        <p>
+          Utmost transparency, security, and accountability
+          across systems, data, and execution.
+        </p>
+      </div>
+
+      <div class="northmark-card highlight">
+        <h3>Cost & Efficiency Optimization</h3>
+        <p>
+          Cut costs, improve efficiency, and scale sustainably
+          through transparent, optimized systems.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORNOVA - AI Document Automation</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #0a1628 0%, #1a2f4e 50%, #0d2137 100%);
+    }
+    
+    .electric-gradient {
+      background: linear-gradient(135deg, #00d4ff 0%, #0066ff 50%, #7c3aed 100%);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #00d4ff, #0066ff, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .glow-blue {
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 102, 255, 0.2);
+    }
+    
+    .hover-lift {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00d4ff, #0066ff);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: #00d4ff;
+    }
+    
+    .input-field {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .input-field:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    }
+    
+    .sidebar-item {
+      transition: all 0.3s ease;
+    }
+    
+    .sidebar-item:hover, .sidebar-item.active {
+      background: rgba(0, 212, 255, 0.15);
+      border-left: 3px solid #00d4ff;
+    }
+    
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00d4ff, #0066ff, #7c3aed);
+    }
+    
+    .domain-card {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 2px;
+      border-radius: 20px;
+    }
+    
+    .domain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #00d4ff, #0066ff, #7c3aed, #00d4ff);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+      border-radius: 18px;
+    }
+    
+    .domain-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      border-radius: 18px;
+      z-index: 1;
+    }
+    
+    .domain-card-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .domain-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.4), 0 30px 60px rgba(0, 102, 255, 0.2);
+    }
+    
+    .domain-card:hover::before {
+      opacity: 1;
+    }
+    
+    .domain-icon-wrapper {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .domain-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      transition: all 0.4s ease;
+    }
+    
+    .domain-card:hover .domain-icon {
+      transform: scale(1.15) rotate(5deg);
+    }
+    
+    .domain-badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 102, 255, 0.1));
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .domain-card:hover .domain-badge {
+      opacity: 1;
+    }
+    
+    .domain-title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ffffff, #e0f0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 3;
+    }
+    
+    .domain-card:hover .domain-title {
+      background: linear-gradient(135deg, #00d4ff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .domain-docs {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      position: relative;
+      z-index: 3;
+      line-height: 1.6;
+    }
+    
+    .domain-features {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 3;
+    }
+    
+    .domain-feature-tag {
+      font-size: 0.7rem;
+      padding: 0.375rem 0.75rem;
+      background: rgba(0, 212, 255, 0.15);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 8px;
+      color: rgba(0, 212, 255, 0.9);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .domain-card:hover .domain-feature-tag {
+      background: rgba(0, 212, 255, 0.25);
+      border-color: rgba(0, 212, 255, 0.6);
+    }
+    
+    .domain-enter-btn {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(0, 102, 255, 0.9));
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    }
+    
+    .domain-enter-btn:hover {
+      background: linear-gradient(135deg, #00d4ff, #0066ff);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+    }
+    
+    .domain-enter-btn:active {
+      transform: translateY(0);
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .table-row {
+      transition: all 0.3s ease;
+    }
+    
+    .table-row:hover {
+      background: rgba(0, 212, 255, 0.1);
+    }
+    
+    .pulse-dot {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .scroll-hidden::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .scroll-hidden::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .scroll-hidden::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 3px;
+    }
+    
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full gradient-bg text-white overflow-auto scroll-hidden"><!-- Navigation -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 glass-card">
+   <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 electric-gradient rounded-xl flex items-center justify-center glow-blue">
+       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+       </svg>
+      </div><span id="nav-title" class="text-xl font-bold text-gradient">FORNOVA</span>
+     </div>
+     <div class="hidden md:flex items-center gap-8"><a href="#" class="nav-link text-gray-300 hover:text-white" onclick="showPage('landing')">Home</a> <a href="#" class="nav-link text-gray-300 hover:text-white" onclick="showPage('landing')">Features</a> <a href="#" class="nav-link text-gray-300 hover:text-white" onclick="showPage('landing')">Industries</a> <a href="#" class="nav-link text-gray-300 hover:text-white" onclick="showPage('landing')">Pricing</a>
+     </div>
+     <div class="flex items-center gap-4"><button onclick="showPage('login')" class="btn-secondary px-5 py-2.5 rounded-xl font-medium">Sign In</button> <button onclick="showPage('login')" class="btn-primary px-5 py-2.5 rounded-xl font-medium hidden sm:block">Get Started</button>
+     </div>
+    </div>
+   </div>
+  </nav><!-- Landing Page -->
+  <div id="page-landing" class="page active"><!-- Hero Section -->
+   <section class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+       <div class="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6"><span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span> <span class="text-sm text-gray-300">AI-Powered Platform</span>
+       </div>
+       <h1 id="hero-title" class="text-5xl lg:text-6xl font-bold mb-6 leading-tight"><span class="text-gradient">Intelligent</span> Document<br>
+         Automation</h1>
+       <p id="hero-tagline" class="text-xl text-gray-400 mb-8 leading-relaxed">Transform your enterprise workflows with AI-powered document processing across multiple industries.</p>
+       <div class="flex flex-wrap gap-4"><button onclick="showPage('login')" class="btn-primary px-8 py-4 rounded-2xl font-semibold text-lg"> Start Free Trial </button> <button class="btn-secondary px-8 py-4 rounded-2xl font-semibold text-lg flex items-center gap-2">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg> Watch Demo </button>
+       </div>
+       <div class="flex items-center gap-8 mt-10">
+        <div>
+         <div class="text-3xl font-bold text-gradient">
+          500K+
+         </div>
+         <div class="text-sm text-gray-500">
+          Documents Processed
+         </div>
+        </div>
+        <div class="w-px h-12 bg-gray-700"></div>
+        <div>
+         <div class="text-3xl font-bold text-gradient">
+          99.9%
+         </div>
+         <div class="text-sm text-gray-500">
+          Accuracy Rate
+         </div>
+        </div>
+        <div class="w-px h-12 bg-gray-700"></div>
+        <div>
+         <div class="text-3xl font-bold text-gradient">
+          50+
+         </div>
+         <div class="text-sm text-gray-500">
+          Enterprise Clients
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="glass-card-light rounded-3xl p-8 glow-blue float-animation">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-12 h-12 electric-gradient rounded-xl flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+         </div>
+         <div>
+          <div class="font-semibold">
+           Document Analysis
+          </div>
+          <div class="text-sm text-gray-400">
+           Processing invoice_2024.pdf
+          </div>
+         </div>
+        </div>
+        <div class="space-y-4">
+         <div class="flex justify-between text-sm"><span class="text-gray-400">Extraction</span> <span class="text-cyan-400">Complete</span>
+         </div>
+         <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+          <div class="h-full electric-gradient rounded-full" style="width: 100%"></div>
+         </div>
+         <div class="flex justify-between text-sm"><span class="text-gray-400">Validation</span> <span class="text-cyan-400">98.7%</span>
+         </div>
+         <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+          <div class="h-full electric-gradient rounded-full" style="width: 98.7%"></div>
+         </div>
+         <div class="flex justify-between text-sm"><span class="text-gray-400">Classification</span> <span class="text-yellow-400">In Progress</span>
+         </div>
+         <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+          <div class="h-full electric-gradient rounded-full" style="width: 65%"></div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Features Section -->
+   <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">Powerful <span class="text-gradient">Features</span></h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Enterprise-grade capabilities designed for modern document workflows</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+       <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-3">AI Extraction</h3>
+       <p class="text-gray-400">Smart data extraction using advanced machine learning models</p>
+      </div>
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+       <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-3">Multi-Format Support</h3>
+       <p class="text-gray-400">Process PDF, images, spreadsheets, and structured data</p>
+      </div>
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+       <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-3">Enterprise Security</h3>
+       <p class="text-gray-400">SOC 2 compliant with end-to-end encryption</p>
+      </div>
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+       <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-3">Real-time Processing</h3>
+       <p class="text-gray-400">Instant document analysis with live status updates</p>
+      </div>
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+       <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-3">API Integration</h3>
+       <p class="text-gray-400">RESTful APIs for seamless system integration</p>
+      </div>
+      <div class="glass-card rounded-3xl p-8 hover-lift">
+       <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold mb-3">Analytics Dashboard</h3>
+       <p class="text-gray-400">Comprehensive insights and reporting tools</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Industries Section -->
+   <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">Industry <span class="text-gradient">Solutions</span></h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Tailored automation for your specific industry needs</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="glass-card rounded-3xl p-6 hover-lift text-center">
+       <div class="text-5xl mb-4">
+        🏥
+       </div>
+       <h3 class="font-semibold mb-2">Healthcare</h3>
+       <p class="text-sm text-gray-400">Medical records &amp; claims</p>
+      </div>
+      <div class="glass-card rounded-3xl p-6 hover-lift text-center">
+       <div class="text-5xl mb-4">
+        🏦
+       </div>
+       <h3 class="font-semibold mb-2">Finance
